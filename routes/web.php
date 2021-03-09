@@ -38,3 +38,4 @@ Route::get('/about',[AboutController::class,'about']);
 
 // Route Resource
 Route::get('/contact',[ContactController::class,'index']);
+Route::post('/upload',[ContactController::class,'store']);
