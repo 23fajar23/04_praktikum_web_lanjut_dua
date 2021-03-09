@@ -5,7 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
-
+use Illuminate\Support\Facades\DB;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,3 +39,9 @@ Route::get('/about',[AboutController::class,'about']);
 // Route Resource
 Route::get('/contact',[ContactController::class,'index']);
 Route::post('/upload',[ContactController::class,'store']);
+
+Route::get('/show', function () {
+
+    $messages = DB::table('messages')->get();
+    return view('comment', ['messages' => $messages]);
+});
